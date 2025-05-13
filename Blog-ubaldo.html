@@ -924,4 +924,237 @@
                         <a href="#" class="social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <div class="team-logo" style="margin-top: 2rem; text-align: center;">
+                        <h3>My Team</h3>
+                        <img src="images/cvrs.png" alt="CVRS Team Logo" style="max-width: 150px; margin-top: 1rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/cvrs.png" alt="Jay-vee Ubaldo Logo">
+            </div>
+            <div class="footer-text">
+                <p>&copy; 2025 Jay-vee Ubaldo. All Rights Reserved.</p>
+            </div>
+            <div class="social-links" style="justify-content: center;">
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const closeMenu = document.querySelector('.close-menu');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav ul li a');
+            
+            menuBtn.addEventListener('click', function() {
+                mobileNav.classList.add('active');
+            });
+            
+            closeMenu.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+            });
+            
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for all navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // OJT Vlog Modal
+            const vlogCards = document.querySelectorAll('.vlog-card');
+            const vlogModal = document.querySelector('.vlog-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const videoFrame = document.getElementById('video-frame');
+            const modalDescription = document.getElementById('modal-description');
+            
+            vlogCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const week = this.getAttribute('data-week');
+                    const title = this.querySelector('h3').textContent;
+                    const description = this.querySelector('p').textContent;
+                    
+                    // This would be your video URL for each week
+                    // For demonstration, we'll use a placeholder
+                    const videoUrl = `https://www.youtube.com/embed/placeholder-week-${week}`;
+                    
+                    modalTitle.textContent = title;
+                    videoFrame.src = videoUrl;
+                    modalDescription.innerHTML = `<p>${description}</p>`;
+                    
+                    vlogModal.style.display = 'flex';
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                vlogModal.style.display = 'none';
+                videoFrame.src = '';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === vlogModal) {
+                    vlogModal.style.display = 'none';
+                    videoFrame.src = '';
+                }
+            });
+            
+            // Form Submission
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the form data to a server
+                // For demo purposes, we'll just show a success message
+                
+                alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+                contactForm.reset();
+            });
+            
+            // Team buttons functionality
+            const teamButtons = document.querySelectorAll('.team-buttons .btn');
+            
+            teamButtons.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                    // Reset all buttons
+                    teamButtons.forEach(b => {
+                        b.style.backgroundColor = '';
+                    });
+                    
+                    // Highlight clicked button
+                    this.style.backgroundColor = '#2980b9';
+                    
+                    // Show team info based on clicked button
+                    let teamInfo = '';
+                    
+                    switch(index) {
+                        case 0:
+                            teamInfo = '<h3>Team 1: Development Team</h3><p>As a front-end developer in this team, I contributed to building user interfaces and implementing client-side functionality for various projects.</p>';
+                            break;
+                        case 1:
+                            teamInfo = '<h3>Team 2: QA Team</h3><p>In this team, I served as a QA expert, ensuring the quality and reliability of our software products through rigorous testing methodologies.</p>';
+                            break;
+                        case 2:
+                            teamInfo = '<h3>Team 3: Project Management</h3><p>As a sub Project Manager in this team, I coordinated tasks, managed timelines, and facilitated communication between team members to ensure project success.</p>';
+                            break;
+                    }
+                    
+                    // Create or update team info element
+                    let teamInfoElement = document.querySelector('.team-info');
+                    
+                    if (!teamInfoElement) {
+                        teamInfoElement = document.createElement('div');
+                        teamInfoElement.className = 'team-info';
+                        document.querySelector('.team-buttons').insertAdjacentElement('afterend', teamInfoElement);
+                    }
+                    
+                    teamInfoElement.innerHTML = teamInfo;
+                    teamInfoElement.style.marginTop = '1.5rem';
+                    teamInfoElement.style.padding = '1rem';
+                    teamInfoElement.style.backgroundColor = '#f0f4f8';
+                    teamInfoElement.style.borderRadius = '8px';
+                    teamInfoElement.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                    header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.backgroundColor = 'var(--secondary)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+            
+            // Skill items animation on scroll
+            const skillItems = document.querySelectorAll('.skill-item');
+            
+            function checkSkills() {
+                const triggerBottom = window.innerHeight * 0.8;
+                
+                skillItems.forEach(skill => {
+                    const skillTop = skill.getBoundingClientRect().top;
+                    
+                    if (skillTop < triggerBottom) {
+                        skill.style.opacity = '1';
+                        skill.style.transform = 'translateY(0) scale(1)';
+                    } else {
+                        skill.style.opacity = '0';
+                        skill.style.transform = 'translateY(20px) scale(0.9)';
+                    }
+                });
+            }
+            
+            // Set initial styles for skill items
+            skillItems.forEach(skill => {
+                skill.style.opacity = '0';
+                skill.style.transform = 'translateY(20px) scale(0.9)';
+                skill.style.transition = 'all 0.5s ease';
+            });
+            
+            // Check skills position on page load and scroll
+            window.addEventListener('scroll', checkSkills);
+            window.addEventListener('load', checkSkills);
+        });
+    </script>
+</body>
+</html>
