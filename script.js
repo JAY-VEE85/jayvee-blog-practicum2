@@ -197,35 +197,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const seminarCards = document.querySelectorAll('.seminar-card');
         
         // Corrected PDF mappings with proper paths
-        const pdfMappings = {
-            'webinar1.pdf': 'pdfs/webinar/UBALDO.WEBINAR#1.REFLECTIONREPORT.pdf',
-            'webinar2.pdf': 'pdfs/webinar/UBALDO.WEBINAR#2.REFLECTIONREPORT.pdf',
-            'webinar3.pdf': 'pdfs/webinar/UBALDO.WEBINAR#3.REFLECTIONREPORT.pdf',
-            'webinar4.pdf': 'pdfs/webinar/UBALDO.WEBINAR#4.REFLECTIONREPORT.pdf',
-            'webinar5.pdf': 'pdfs/webinar/UBALDO.WEBINAR#5.REFLECTIONREPORT.pdf',
-            
-            // Seminar PDFs
-            'seminar1.pdf': 'pdfs/seminar/UBALDO.SEMINAR#1.REFLECTIONREPORT.pdf',
-            'seminar2.pdf': 'pdfs/seminar/UBALDO.SEMINAR#2.REFLECTIONREPORT.pdf',
-            'seminar3.pdf': 'pdfs/seminar/UBALDO.SEMINAR#3.REFLECTIONREPORT.pdf',
-            'seminar4.pdf': 'pdfs/seminar/UBALDO.SEMINAR#4.REFLECTIONREPORT.pdf',
-            'seminar5.pdf': 'pdfs/seminar/UBALDO.SEMINAR#5.REFLECTIONREPORT.pdf',
-            
-            // Group Organized PDFs
-            'group1.pdf': 'pdfs/group/UBALDO.ORGANIZED#01.REFLECTIONREPORT.pdf',
-            'group2.pdf': 'pdfs/group/UBALDO.ORGANIZED#02.REFLECTIONREPORT.pdf',
-            'group3.pdf': 'pdfs/group/UBALDO.ORGANIZED#03.REFLECTIONREPORT.pdf',
-            'group4.pdf': 'pdfs/group/UBALDO.ORGANIZED#04.REFLECTIONREPORT.pdf',
-            'group5.pdf': 'pdfs/group/UBALDO.ORGANIZED#05.REFLECTIONREPORT.pdf',
-            
-            // Industry Exposure PDFs
-            'industry1.pdf': 'pdfs/industry/UBALDO.INDUSTRYVISIT#1.REFLECTIONREPORT.pdf',
-            'industry2.pdf': 'pdfs/industry/UBALDO.INDUSTRYVISIT#2.REFLECTIONREPORT.pdf',
-            
-            // Regional Participation PDFs
-            'regional1.pdf': 'pdfs/regional/UBALDO.REGIONAL.SEMINAR#1.REFLECTIONREPORT.pdf',
-            'regional2.pdf': 'pdfs/regional/UBALDO.REGIONAL.SEMINAR#2.REFLECTIONREPORT.pdf'
-        };
+    const pdfMappings = {
+        'webinar1.pdf': './pdfs/webinar/web1.pdf',
+        'webinar2.pdf': './pdfs/webinar/web2.pdf',
+        'webinar3.pdf': './pdfs/webinar/web3.pdf',
+        'webinar4.pdf': './pdfs/webinar/web4.pdf',
+        'webinar5.pdf': './pdfs/webinar/web5.pdf',
+        
+        // Seminar PDFs
+        'seminar1.pdf': './pdfs/seminar/sem1.pdf',
+        'seminar2.pdf': './pdfs/seminar/sem2.pdf',
+        'seminar3.pdf': './pdfs/seminar/sem3.pdf',
+        'seminar4.pdf': './pdfs/seminar/sem4.pdf',
+        'seminar5.pdf': './pdfs/seminar/sem5.pdf',
+        
+        // Group Organized PDFs
+        'group1.pdf': './pdfs/group/org1.pdf',
+        'group2.pdf': './pdfs/group/org2.pdf',
+        'group3.pdf': './pdfs/group/org3.pdf',
+        'group4.pdf': './pdfs/group/org4.pdf',
+        'group5.pdf': './pdfs/group/org5.pdf',
+        
+        // Industry Exposure PDFs
+        'industry1.pdf': './pdfs/industry/ind1.pdf',
+        'industry2.pdf': './pdfs/industry/ind2.pdf',
+        
+        // Regional Participation PDFs
+        'regional1.pdf': './pdfs/regional/reg1.pdf',
+        'regional2.pdf': './pdfs/regional/reg2.pdf'
+    };
         
         seminarCards.forEach(card => {
             card.addEventListener('click', async function() {
@@ -478,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
             } else {
                 // If no contact section, show email info
-                alert('Please contact Jay-vee Ubaldo for the PDF document.\nEmail: your-email@example.com');
+                alert('Please contact Jay-vee Ubaldo for the PDF document.\nEmail: jayveeubaldo110@gmail.com');
             }
         });
         
