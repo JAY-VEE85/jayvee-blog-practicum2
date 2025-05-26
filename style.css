@@ -352,6 +352,14 @@ nav ul li.active a::after {
     animation: glitchy-blink 0.3s steps(2, end) infinite;
 }
 
+.text-glitchy5:hover::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 235px;
+    text-shadow: -1px 0 var(--cyber-pink);
+    animation: glitchy-blink 0.3s steps(2, end) infinite;
+}
+
 @keyframes glitchy-blink {
     0% { clip-path: inset(0 0 40% 0); }
     50% { clip-path: inset(30% 0 20% 0); }
